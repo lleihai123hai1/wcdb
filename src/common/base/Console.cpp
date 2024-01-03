@@ -60,8 +60,8 @@ void Console::fatal(const UnsafeStringView& message)
 {
     Error error(Error::Code::Misuse, Error::Level::Fatal, message);
     error.infos.insert_or_assign(ErrorStringKeySource, ErrorSourceAssertion);
-    error.infos.insert_or_assign("Version", WCDB_VERSION_STRING);
-    error.infos.insert_or_assign("Build", WCDB_BUILD_STRING);
+    // error.infos.insert_or_assign("Version", WCDB_VERSION_STRING);
+    // error.infos.insert_or_assign("Build", WCDB_BUILD_STRING);
     auto callstacks = Console::callstacks();
     if (callstacks.succeed()) {
         error.infos.insert_or_assign("Callstacks", callstacks.value());
